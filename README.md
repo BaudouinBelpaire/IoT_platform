@@ -6,3 +6,7 @@ Small Sensor Network
 2. Ángel García Amigo - H00XXXXXX
 3. Baudouin Belpaire - H00445613
 4. Diego Velasquez  - H00434521
+
+## Initial Project Proposal
+
+### Project Plan
