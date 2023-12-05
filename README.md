@@ -1,5 +1,5 @@
-# IOT Group Assignment.
-Small Sensor Network
+# Wireless Sensor Network.
+This project consists on design a small sensor network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers. 
 
 ## TEAM MEMBERS
 1. Ali Altaheri - H00417357
