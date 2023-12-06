@@ -13,18 +13,18 @@ The sensor network represents when someone sits in or stands up from a chair, th
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture.png" alt="Architecture">
 
 
-## Hardware design
+## Hardware Design
 
-## Software design 
+## Software Design 
 
-## Performance tests
+## Performance Tests
 
-## Instruction for Users
+## Instructions for Users
 
 ## Problems & Solutions
 
 ## Critical Analysis 
 
-## Discussion of future work 
+## Future Work 
 
 
