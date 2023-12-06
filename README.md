@@ -16,6 +16,9 @@ The sensor network represents when someone sits in or stands up from a chair, th
   <img src="https://github.com/DIEGO15457/Final-Project/blob/main/assets/Architecture.png" alt="Architecture" width="700" height="300">
 </p>
 
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture.png" alt="https://github.com/Sonihal/moveclient/blob/master/group_name_and_id.JPG">
+
+
 ## Methodology
 -- Push Button (2)
 -- ESP8266 (4)
