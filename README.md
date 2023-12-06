@@ -3,7 +3,7 @@ This project consists on design a small sensor network based on interconnected [
 
 ## Team Members
 1. Ali Altaheri      - H00417357
-2. Ángel García      - H00XXXXXX
+2. Ángel García      - H00417698
 3. Baudouin Belpaire - H00445613
 4. Diego Velasquez   - H00434521
 
