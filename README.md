@@ -15,7 +15,12 @@ The sensor network represents when someone sits in or stands up from a chair, th
 </p>
 
 ## Methodology
+Push Button (2)
+ESP8266 (4)
+laptop (1)
+Node - Red (1)
+
 
 ## Results
-
+Lauch images from word.
 
