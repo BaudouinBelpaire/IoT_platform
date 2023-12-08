@@ -8,14 +8,19 @@ This project consists on design a small sensor network based on interconnected [
 4. Diego Velasquez   - H00434521
 
 ## Purpose of the system 
-The sensor network represents when someone sits in or stands up from a chair, the sensor network will send an alert (via MQTT). Each chair will have pressure mats—basically binary switch sensors—under it, and each mat will be interfaced with an ESP8266 to run the programme. For the objective of this assignment, a straightforward push button will be installed in lieu of each pressure mat. Assume that every ESP8266 connected to a mat (sensor node) will be supplied with power to rechargeable energy source. But the bridge node, one of the ESP8266s, won't be connected to a pressure mat, and a USB port will supply power. More specifically, it will be linked to a gateway (such as a laptop) and using the serial port to communicate with it.
+The system’s purpose is to develop an IoT platform monitoring the chairs status in a remote environment. The chairs are equipped with pressure mat sensors detecting the presence of a person sitting on it. Thus, each chair represents a sensing node and communicates wirelessly its status with a bridge node. The bridge node consists of a bridge in the network gathering in a single point all the data from the different places in the environment. The gathered data is meant to be transferred through wired communication to a WiFi gateway enabling to connect the local application to an Internet connection. The connection to an Internet access point is ensured through a MQTT broker communicating thanks to the MQTT protocol. This part is crucial as it allows to access from anywhere in the world to the local environment. From there, any users can be notified on the environment status and take the control remotely.
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture.png" alt="Architecture">
 
-
 ## Hardware Design
+In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been implemented on 4 different ESP8266 boards. The ESP8266 board is an optimal solution for IoT systems as it embeds a microprocessor, GPIO, a WiFi antenna for wireless communications, and is energy efficient. The WiFi antenna is used by the nodes to communicates over ESP-Now technology using the same WiFi bandwidth while consuming less power. The pressure mats are replaced by push buttons returning a digital signal (0 or 1) to the GPIO 5 on the board. The wired communication between the bridge and the gateway is performed through Serial communication using the TX/RX ports. Finally, the gateway communicates with the online Moquitto Broker thanks to the MQTT protocol used on a private WiFi network provided by Heriot-Watt.
 
-## Software Design 
+## Software Design
+Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The WiFi, ESP-Now, ArduinoJson, and PubSubClient libraries were used to facilitate the code implementation. 
+(Implement of the flowcharts of sensing nodes, bridge, GW)
+The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented. 
+Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval.
+(Screen of the Node-RED pipeline)
 
 ## Performance Tests
 
