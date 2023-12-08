@@ -1,4 +1,4 @@
-# Wireless Sensor Network.
+# Wireless Sensor Network
 This project consists on design a small sensor network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers. 
 
 ## Team Members
@@ -18,7 +18,7 @@ In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture2.png" alt="Architecture">
 
 ## Software Design
-Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The WiFi, ESP-Now, ArduinoJson, and PubSubClient libraries were used to facilitate the code implementation.
+Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The 'WiFi', 'ESP-Now', 'ArduinoJson', and 'PubSubClient' libraries were used to facilitate the code implementation. Thus, the flowcharts for the different nodes is shown below, and the codes for the [Sensing node](https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/code/sensing_node.ino), [Bridge](https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/code/bridge.ino), [WiFi Gateway](https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/code/gateway.ino) are available here.
 
 ### Sensing node flowchart:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensing_node_flowchart.png" alt="Sensing Flowchart" width="600" height="auto">
