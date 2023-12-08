@@ -29,13 +29,17 @@ Concerning the software part, the Arduino IDE was used to program the different 
 ### WiFi Gateway flowchart:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_flowchart.png" alt="WF Gateway Flowchart" width="600" height="auto">
 
-The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented. 
+The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented. \
 Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval.
 
 ### Node-RED Pipeline:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Node-RED Pipeline.png" alt="Node-RED Pipeline" width="600" height="auto">
 
 ## Performance Tests
+The implementation of the IoT system was successful as it is possible to display the current nodes status on real-time chart with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a Internet connection through Node-RED.
+
+### Real-time charts:
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Nodes_state.png" alt="Charts" width="600" height="auto">
 
 ## Instructions for Users
 
