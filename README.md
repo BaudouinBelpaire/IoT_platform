@@ -25,7 +25,7 @@ Concerning the software part, the Arduino IDE was used to program the different 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_flowchart.png" alt="Bridge Flowchart" width="800" height="400">
 
 ### WiFi Gateway flowchart:
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_flowchart.png" alt="WF Gateway Flowchart" width="800" height="400">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_flowchart.png" alt="WF Gateway Flowchart" width="800" height="600">
 
 The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented. 
 Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval.
