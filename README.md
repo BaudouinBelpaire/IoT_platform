@@ -36,10 +36,13 @@ Finally, the Node-RED tool was used to visualise the data in real-time, to store
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Node-RED Pipeline.png" alt="Node-RED Pipeline" width="600" height="auto">
 
 ## Performance Tests
-The implementation of the IoT system was successful as it is possible to display the current nodes status on real-time chart with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a Internet connection through Node-RED.
+The implementation of the IoT system was successful as it is possible to display the current nodes status on real-time chart with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a dashboard on Node-RED.
 
 ### Real-time charts:
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Nodes_state.png" alt="Charts" width="600" height="auto">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Nodes_states.png" alt="Charts" width="300" height="auto">
+
+### Dashboard:
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Dashboard.png" alt="Dashboard" width="300" height="auto">
 
 ## Instructions for Users
 
