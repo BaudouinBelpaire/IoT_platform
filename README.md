@@ -29,6 +29,8 @@ Concerning the software part, the Arduino IDE was used to program the different 
 
 The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented. 
 Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval.
+
+### Node-RED Pipeline:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Node-RED Pipeline.png" alt="Node-RED Pipeline" width="600" height="auto">
 
 ## Performance Tests
