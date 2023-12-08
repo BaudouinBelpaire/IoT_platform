@@ -45,6 +45,12 @@ The implementation of the IoT system was successful as it is possible to display
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Dashboard.png" alt="Dashboard" width="300" height="auto">
 
 ## Instructions for Users
+[ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf)
+[DHT11](https://learn.adafruit.com/dht)
+[Arduino IDE](https://www.arduino.cc/en/software)
+[Node-Red](https://nodejs.org/en)
+[Cloud IoT platform](https://mosquitto.org/download/)
+
 
 ## Problems & Solutions
 
