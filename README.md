@@ -19,7 +19,7 @@ In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been
 Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The WiFi, ESP-Now, ArduinoJson, and PubSubClient libraries were used to facilitate the code implementation.
 
 ### Sensing node flowchart:
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensing_node_flowchart.png" alt="Sensing Flowchart">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensing_node_flowchart.png" alt="Sensing Flowchart" width="200" height="200">
 
 ### Bridge flowchart:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_flowchart.png" alt="Bridge Flowchart">
