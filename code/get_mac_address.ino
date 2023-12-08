@@ -1,7 +1,7 @@
 #include<ESP8266WiFi.h>
 
 void setup() {
-  // put your setup code here, to run once:
+  //Setup code here:
   Serial.begin(9600);
   delay(500);
   Serial.print("Mac Address of Node MCU is");
@@ -9,6 +9,5 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  // to add main code
 }
