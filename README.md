@@ -17,8 +17,16 @@ In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been
 
 ## Software Design
 Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The WiFi, ESP-Now, ArduinoJson, and PubSubClient libraries were used to facilitate the code implementation.
-###Sensing node flowchart:
+
+### Sensing node flowchart:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensing_node_flowchart.png" alt="Sensing Flowchart">
+
+### Bridge flowchart:
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_flowchart.png" alt="Bridge Flowchart">
+
+### WiFi Gateway flowchart:
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_flowchart.png" alt="WF Gateway Flowchart">
+
 The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented. 
 Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval.
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Node-RED Pipeline.png" alt="Node-RED Pipeline">
