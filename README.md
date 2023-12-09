@@ -72,7 +72,8 @@ Going deeper through the sleep mode for ESP8266[4], to implement sleep mode in t
 The first approach is to put the ESP8266 into sleep mode after finished sending data. 
 When the ESP8266 wakes up from deep sleep, it resets, which means that it starts executing from the beginning of the code again, not from where it left off before going to sleep. As we haven’t specified a channel, it automatically chooses a new one, different to the one it had before, which is the one where the receiver is still anchored. This is the reason why when trying to implement ESP.deepSleep(), it never worked. To address this issue, the best thing to do is making sure ESP-NOW is connected to the same Wi-Fi channel all the time and for the whole system (all sensors and receiver), forcing the connection to it when initializing the system and the sensors after waken-up. However, there are other options such as resetting every connection on the receiver every time a sensor wakes up. 
 
-###Enery Consumption
+### Energy Consumption
+
 Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented.
 Measuring the voltage and current directly from  the sensing unit, we get:
 
