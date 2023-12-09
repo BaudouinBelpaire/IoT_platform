@@ -55,9 +55,33 @@ Once, the system is connected to MQTT server and established the gateway, the da
 
 ## Critical Analysis 
 
+The system complies with all the requirements as per the specifications, but the sleep mode:
+-It captures all the push events from the remote devices.
+-It implements the communication from sensors to gateway via ESP-Now.
+-It can establish a remote MQTT connection via Wi-Fi and allows a client to subscribe to change the reporting interval and switching on/off the sensing nodes.
+However, when trying to implement the sleep-mode it wasn’t successful and due to the lack of time we couldn’t try different solutions.
+
+Going deeper through the sleep mode for ESP8266[4], to implement sleep mode in the sender code, we tried to use the ESP.deepSleep(time[microseconds]). Here we had 2 options, both tested:
+
+1.	Automatic Wake-Up (Timer Wake-Up): The ESP8266 automatically wakes up after the sleep time has elapsed. This is done by setting a sleep time when calling the ESP.deepSleep(time[microseconds) function. After this duration, the ESP8266 will wake up.
+
+2.	External Wake-Up: The ESP8266 can be woken up by an external event, such as the press of a button or a signal from a sensor. To enable the external wake-up source, the RST pin of the ESP8266 shall be connected to the button . When the RST pin receives a LOW signal, the ESP8266 wakes up.
+
+The first approach is to put the ESP8266 into sleep mode after finished sending data. 
+When the ESP8266 wakes up from deep sleep, it resets, which means that it starts executing from the beginning of the code again, not from where it left off before going to sleep. As we haven’t specified a channel, it automatically chooses a new one, different to the one it had before, which is the one where the receiver is still anchored. This is the reason why when trying to implement ESP.deepSleep(), it never worked. To address this issue, we have different possibilities: one is making sure ESP-NOW is connected to the same Wi-Fi channel all the time and for the whole system (all sensors and receiver), forcing the connection to it when initializing the system and the sensors after waken-up. 
+
+
 ## Future Work 
 This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the esp-now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries. 
 
 Moreover, the particular approach of how to achieve of proper connection using a gateway to establish connection with a remote client to get data in real time allowing to store data through the time. Historical data like this (number of node and states) will allow to make predictions about the frequency of usage the controlled device and as consequence to establish proper actions as for example to add more seats for the space assessed and even to detect if specific links into the system is broken receiving an new state of "Link Broken"
+
+## References
+
+[1] https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf (Access Nov-2023).
+[2] https://espressif-docs.readthedocs-hosted.com/projects/esp-faq/en/latest/application-solution/esp-now.html#:~:text=Yes%2C%20but%20it%20should%20be%20noted%20that%20the,the%20same%20as%20that%20of%20the%20connected%20AP. (Access Nov 2023).
+[3] https://github.com/espressif/arduino-esp32/issues/878 (Access Nov-2023).
+[4] https://microcontrollerslab.com/esp8266-deep-sleep-wake-up-sources-arduino-ide/ (Access Nov 2023).
+
 
 
