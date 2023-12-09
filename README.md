@@ -98,8 +98,11 @@ Moreover, the particular approach of how to achieve of proper connection using a
 ## References
 
 [1] https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf (Access Nov-2023).
+
 [2] https://espressif-docs.readthedocs-hosted.com/projects/esp-faq/en/latest/application-solution/esp-now.html#:~:text=Yes%2C%20but%20it%20should%20be%20noted%20that%20the,the%20same%20as%20that%20of%20the%20connected%20AP. (Access Nov 2023).
+
 [3] https://github.com/espressif/arduino-esp32/issues/878 (Access Nov-2023).
+
 [4] https://microcontrollerslab.com/esp8266-deep-sleep-wake-up-sources-arduino-ide/ (Access Nov 2023).
 
 
