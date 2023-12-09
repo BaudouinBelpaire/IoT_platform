@@ -72,6 +72,23 @@ Going deeper through the sleep mode for ESP8266[4], to implement sleep mode in t
 The first approach is to put the ESP8266 into sleep mode after finished sending data. 
 When the ESP8266 wakes up from deep sleep, it resets, which means that it starts executing from the beginning of the code again, not from where it left off before going to sleep. As we haven’t specified a channel, it automatically chooses a new one, different to the one it had before, which is the one where the receiver is still anchored. This is the reason why when trying to implement ESP.deepSleep(), it never worked. To address this issue, the best thing to do is making sure ESP-NOW is connected to the same Wi-Fi channel all the time and for the whole system (all sensors and receiver), forcing the connection to it when initializing the system and the sensors after waken-up. However, there are other options such as resetting every connection on the receiver every time a sensor wakes up. 
 
+###Enery Consumption
+Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented.
+Measuring the voltage and current directly from  the sensing unit, we get:
+<img src ="https://github.com/DIEGO15457/Final-Project/blob/main/assets/20231128_103304.jpg">
+
+Increasing the voltage from 3.30Vdc (minimum for ESP8266) to 3.7Vdc first and 5Vdc later, the current came up to 80mA, which could be assumed as almost constant, so the limitation in current consumption is between 76mA and 80mA.
+<img src ="https://github.com/DIEGO15457/Final-Project/blob/main/assets/Energy_table.png">
+
+The increase in power for 5Vdc matches the rate conversion on the ESP8266 to convert the 5Vdc to 3Vdc.
+<img src = "https://github.com/DIEGO15457/Final-Project/blob/main/assets/EnergyRate_Equation.png">
+
+Searching on the Internet for a battery model in the range of 3.3Vdc to 3.7Vdc, and with the maximum current in ampere-hours to maximize the life-cycle per sensor, a good option offering 3000 mAh is :
+<https://www.amazon.co.uk/Rechargeable-REACELL-Headlamp-Flashlight-Electronic/dp/B0BZJ2NLQY>
+
+Getting the minimum voltage that makes the ESP8266 work-76mA of continouus current consumption-we would have a life-cycle:
+<img src= "https://github.com/DIEGO15457/Final-Project/blob/main/assets/Sensor-life-cycle.png">
+
 
 ## Future Work 
 This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the esp-now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries. 
