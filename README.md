@@ -64,8 +64,10 @@ However, when trying to implement the sleep-mode it wasn’t successful and due 
 Going deeper through the sleep mode for ESP8266[4], to implement sleep mode in the sender code, we tried to use the ESP.deepSleep(time[microseconds]). Here we had 2 options, both tested:
 
 1.	Automatic Wake-Up (Timer Wake-Up): The ESP8266 automatically wakes up after the sleep time has elapsed. This is done by setting a sleep time when calling the ESP.deepSleep(time[microseconds) function. After this duration, the ESP8266 will wake up.
+<img src= "https://github.com/DIEGO15457/Final-Project/blob/main/assets/Automatic_Wake_Up.png">
 
-2.	External Wake-Up: The ESP8266 can be woken up by an external event, such as the press of a button or a signal from a sensor. To enable the external wake-up source, the RST pin of the ESP8266 shall be connected to the button . When the RST pin receives a LOW signal, the ESP8266 wakes up.
+3.	External Wake-Up: The ESP8266 can be woken up by an external event, such as the press of a button or a signal from a sensor. To enable the external wake-up source, the RST pin of the ESP8266 shall be connected to the button . When the RST pin receives a LOW signal, the ESP8266 wakes up.
+<img src= “https://github.com/DIEGO15457/Final-Project/blob/main/assets/RST_Wake_Up.png”>
 
 The first approach is to put the ESP8266 into sleep mode after finished sending data. 
 When the ESP8266 wakes up from deep sleep, it resets, which means that it starts executing from the beginning of the code again, not from where it left off before going to sleep. As we haven’t specified a channel, it automatically chooses a new one, different to the one it had before, which is the one where the receiver is still anchored. This is the reason why when trying to implement ESP.deepSleep(), it never worked. To address this issue, the best thing to do is making sure ESP-NOW is connected to the same Wi-Fi channel all the time and for the whole system (all sensors and receiver), forcing the connection to it when initializing the system and the sensors after waken-up. However, there are other options such as resetting every connection on the receiver every time a sensor wakes up. 
