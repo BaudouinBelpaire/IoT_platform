@@ -75,9 +75,11 @@ When the ESP8266 wakes up from deep sleep, it resets, which means that it starts
 ###Enery Consumption
 Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented.
 Measuring the voltage and current directly from  the sensing unit, we get:
+
 <img src="https://github.com/DIEGO15457/Final-Project/blob/main/assets/20231128_103304.jpg" width="500">
 
 Increasing the voltage from 3.30Vdc (minimum for ESP8266) to 3.7Vdc first and 5Vdc later, the current came up to 80mA, which could be assumed as almost constant, so the limitation in current consumption is between 76mA and 80mA.
+
 <img src ="https://github.com/DIEGO15457/Final-Project/blob/main/assets/Energy_table.png">
 
 The increase in power for 5Vdc matches the rate conversion on the ESP8266 to convert the 5Vdc to 3Vdc.
