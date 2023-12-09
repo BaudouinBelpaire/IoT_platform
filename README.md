@@ -44,18 +44,20 @@ The implementation of the IoT system was successful as it is possible to display
 ### Dashboard:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Dashboard.png" alt="Dashboard" width="300" height="auto">
 
-## Instructions for Users
-[ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf)
-[DHT11](https://learn.adafruit.com/dht)
-[Arduino IDE](https://www.arduino.cc/en/software)
-[Node-Red](https://nodejs.org/en)
-[Cloud IoT platform](https://mosquitto.org/download/)
+## Instructions on how to use the system.
+Firstly, make sure to have all hardware units and connect them each other like the architecture mentioned and provide adequate power source for every node, in this case to feed of energy to every ESP8266 module. Take into account that push button will act as sensor to detect when the seat receives person's weight or release of it.
 
+Secondly, download the algorithm for each module in order to process adequately the information. Every node has to be embedded by the script called [sensing_node.ino](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino) and the [bridge node](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino). So far, the nodes can pair with bridge node through the esp-now communication protocol. 
+
+Once, the system is connected to MQTT server and established the gateway, the data which provides information about the number of node and the state of it, is visualised in real-time, stored locally on a MongoDB application, and remotely changed network characteristics like the functioning status or the data reporting interval thanks to the Node-RED tool. Thus, final users can monitor the state of the seats to detect if they are occupied or released. 
 
 ## Problems & Solutions
 
 ## Critical Analysis 
 
 ## Future Work 
+This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the esp-now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries. 
+
+Moreover, the particular approach of how to achieve of proper connection using a gateway to establish connection with a remote client to get data in real time allowing to store data through the time. Historical data like this (number of node and states) will allow to make predictions about the frequency of usage the controlled device and as consequence to establish proper actions as for example to add more seats for the space assessed and even to detect if specific links into the system is broken receiving an new state of "Link Broken"
 
 
