@@ -115,13 +115,13 @@ Getting the minimum voltage that makes the ESP8266 work-76mA of continous curren
 
 For the improvement of the system energy efficiency, the following method could be implemented to reduce the time for which the CPU and the WiFi antenna are in full operation mode. 
 
-<img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/New_energy_consumption.png"> 
+<img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/New_energy_consumption.png" width="600" height="auto"> 
 
 It starts when the device wakes up from sleep mode and start sensing the sensor state for 5µs. Then, it activates the WiFi antenna to listen for potential incoming message during 10ms concerning the network state. In the case the chair status has changed the ESP would have to submit a message containing two bytes (for the 2 different node information) at a minimal rate of 250bytes/s. The time taken would be then of 8µs for sending the data. Finally, the device enters in deep sleep mode for a duration of 5s. The enabling and disabling steps are assumed to be negligible. The WiFi antenna and the CPU are active at almost the same time and only the current drawn from both process active is known. 
 
-The WiFi antenna active time is then, t(antenna) = 10ms + 8µs = 10.008ms
-The CPU active time is then, t(CPU) = 5µs + 8µs + 10ms = 10.013ms
-The sleep time is t(sleep)=
+The WiFi antenna active time is then, t(antenna) = 10ms + 8µs = 10.008ms. \
+The CPU active time is then, t(CPU) = 5µs + 8µs + 10ms = 10.013ms. \
+The sleep time is t(sleep)= 5s. \
 
 Thus, t(total) = 5 + 0.01 = 5.01s, d(active) = 0.01/5.01 = 0.002, d(sleep) = 0.998.
 The power consumption is then calculated from the active time, the current drawn in sleep mode 20µA, and the current drawn in full operation mode 76mA. 
