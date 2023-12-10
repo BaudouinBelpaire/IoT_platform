@@ -29,7 +29,8 @@ Concerning the software part, the Arduino IDE was used to program the different 
 ### WiFi Gateway flowchart:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_flowchart.png" alt="WF Gateway Flowchart" width="600" height="auto">
 
-The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented. \\
+The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented.
+
 Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval.
 
 ### Node-RED Pipeline:
@@ -40,10 +41,12 @@ The implementation of the IoT system was successful as it is possible to display
 
 ### Real-time charts:
 In this case, a user is sitting on the chair #1 while the chair #2 is free to seat. The time-axis was set to 1 minute but this can be easily changed on Node-RED to extend the time scale for a wider time-window on the chairs status.
+
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Nodes_states.png" alt="Charts" width="300" height="auto">
 
 ### Dashboard:
 In this case, the network state slider is set to 1 meaning the sensing nodes are actives. Furthermore, the reporting interval option is set to the default value of 10s but can be easily changed thanks to the input frame accepting any positive integers.
+
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Dashboard.png" alt="Dashboard" width="300" height="auto">
 
 ## Instructions on how to use the system
@@ -56,26 +59,30 @@ Once, the system is connected to the MQTT server and the gateway successfully tr
 ## Problems & Solutions
 
 ## Critical Analysis 
-The system complies with all the requirements specified in the coursework statement, but not the sleep mode: \
-- It captures all the push events from the remote devices.\
-- It implements the communication from sensors to gateway via ESP-Now.\
-- It can establish a remote MQTT connection via Wi-Fi and allows a client to subscribe to change the reporting interval and switching on/off the sensing nodes.\
+The system complies with all the requirements specified in the coursework statement, but not the sleep mode:
+- It captures all the push events from the remote devices.
+- It implements the communication from sensors to gateway via ESP-Now.
+- It can establish a remote MQTT connection via Wi-Fi and allows a client to subscribe to change the reporting interval and switching on/off the sensing nodes.
+
 However, when trying to implement the sleep-mode it was not successful and due to the lack of time we could not try different solutions.
 
 Going deeper through the sleep mode for ESP8266[4], to implement the sleep mode in the sender code, it was tried to use the ESP.deepSleep(time[microseconds]) function. The following two options were both tested:
 
-1.	Automatic Wake-Up (Timer Wake-Up): The ESP8266 automatically wakes up after the sleep time has elapsed. This is done by setting a sleep time when calling the ESP.deepSleep(time[microseconds) function. After this duration, the ESP8266 will wake up.
+1. Automatic Wake-Up (Timer Wake-Up): The ESP8266 automatically wakes up after the sleep time has elapsed. This is done by setting a sleep time when calling the ESP.deepSleep(time[microseconds) function. After this duration, the ESP8266 will wake up.
+
 <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Automatic_Wake_Up.png">
 
-2.	External Wake-Up: The ESP8266 can be woken up by an external event, such as the press of a button or a signal from a sensor. To enable the external wake-up source, the RST pin of the ESP8266 shall be connected to the button. Once the RST pin receives a LOW signal, the ESP8266 wakes up.
+2. External Wake-Up: The ESP8266 can be woken up by an external event, such as the press of a button or a signal from a sensor. To enable the external wake-up source, the RST pin of the ESP8266 shall be connected to the button. Once the RST pin receives a LOW signal, the ESP8266 wakes up.
+
 <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/RST_Wake_Up.png">
 
-The first approach is to put the ESP8266 into sleep mode after the data is sent. Once the ESP8266 wakes up from deep sleep, it is reset, which means that it starts executing from the beginning of the code again, not from where it left off before going to sleep. As we have not specified a channel, it automatically chooses a new one, different to the one it had before, which is the one where the receiver is still anchored. This is the reason why trying to implement the ESP.deepSleep() did not work. \
+The first approach is to put the ESP8266 into sleep mode after the data is sent. Once the ESP8266 wakes up from deep sleep, it is reset, which means that it starts executing from the beginning of the code again, not from where it left off before going to sleep. As we have not specified a channel, it automatically chooses a new one, different to the one it had before, which is the one where the receiver is still anchored. This is the reason why trying to implement the ESP.deepSleep() did not work.
+
 To address this issue, the best thing to do is making sure ESP-Now is connected to the same WiFi channel all the time and for the whole system (all sensors and receiver), forcing the connection to it when initializing the system and the sensors after waking-up. However, there are other options such as resetting every connection on the receiver every time a sensor wakes up. 
 
 ### Energy Consumption
 Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented.
-Measuring the voltage and current directly from  the sensing unit, we get:
+Measuring the voltage and current directly from  the sensing unit, it gets:
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/20231128_103304.jpg" width="500">
 
@@ -84,11 +91,13 @@ Increasing the voltage from 3.30Vdc (minimum for ESP8266) to 3.7Vdc first and 5V
 <img src ="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Energy_table.png">
 
 The increase in power for 5Vdc matches the rate conversion on the ESP8266 to convert the 5Vdc to 3Vdc.
-<img src = "https://github.com/DIEGO15457/Final-Project/blob/main/assets/EnergyRate_Equation.png">
+
+<img src = "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/EnergyRate_Equation.png">
 
 Searching on the Internet for a battery model in the range of 3.3Vdc to 3.7Vdc, and with the maximum current in ampere-hours to maximize the life-cycle per sensor, a good option offering 3000mAh is available on [Amazon](https://www.amazon.co.uk/Rechargeable-REACELL-Headlamp-Flashlight-Electronic/dp/B0BZJ2NLQY).
 
-Getting the minimum voltage that makes the ESP8266 work-76mA of continouus current consumption-we would have a life-cycle:
+Getting the minimum voltage that makes the ESP8266 work-76mA of continous current consumption, the life-cycle would be:
+
 <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensor-life-cycle.png">
 
 
