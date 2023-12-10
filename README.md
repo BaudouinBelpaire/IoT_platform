@@ -42,11 +42,11 @@ The implementation of the IoT system was successful as it is possible to transmi
 ### Data transmission:
 As follow is the bridge output terminal receiving a notification form the node #2 where the state has changed to 0. The transmitted data buffer is defined as [ID Node#1, State1, ID Node#2, State2]. The buffer is updated each time a notification is received from a sensing ndoe, otherwise the values are unchanged and sent over the wire every 10s. 
 
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_outputs.png" alt="Bridge outputs" width="300" height="auto">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_outputs.png" alt="Bridge outputs" width="200" height="auto">
 
 On the gateway side, the message is received and decoded through the wired connection. Thus, the results dsiplayed on the monitor are the data sent over the MQTT protocol, the reporting interval, and the buffer data received.
 
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs.png" alt="Gateway outputs" width="300" height="auto">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs.png" alt="Gateway outputs" width="200" height="auto">
 
 ### Real-time charts:
 In this case, a user is sitting on the chair #1 while the chair #2 is free to seat. The time-axis was set to 1 minute but this can be easily changed on Node-RED to extend the time scale for a wider time-window on the chairs status.
@@ -94,7 +94,7 @@ The first approach is to put the ESP8266 into sleep mode after the data is sent.
 To address this issue, the best thing to do is making sure ESP-Now is connected to the same WiFi channel all the time and for the whole system (all sensors and receiver), forcing the connection to it when initializing the system and the sensors after waking-up. However, there are other options such as resetting every connection on the receiver every time a sensor wakes up. 
 
 ### Energy Consumption
-Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented.
+Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented. Thus, the duty cycle of the system is 1 as the current drawn over the cycle does not vary, which is due to the CPU and antennas that are continuously running.
 Measuring the voltage and current directly from  the sensing unit, it gets:
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/20231128_103304.jpg" width="500">
