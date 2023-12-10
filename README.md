@@ -42,11 +42,11 @@ The implementation of the IoT system was successful as it is possible to transmi
 ### Data transmission:
 As follow is the bridge output terminal receiving a notification form the node #2 where the state has changed to 0. The transmitted data buffer is defined as [ID Node#1, State1, ID Node#2, State2]. The buffer is updated each time a notification is received from a sensing ndoe, otherwise the values are unchanged and sent over the wire every 10s. 
 
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_outputs.png" alt="Bridge outputs">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_outputs.png" alt="Bridge outputs" width="300" height="auto">
 
 On the gateway side, the message is received and decoded through the wired connection. Thus, the results dsiplayed on the monitor are the data sent over the MQTT protocol, the reporting interval, and the buffer data received.
 
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs.png" alt="Gateway outputs">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs.png" alt="Gateway outputs" width="300" height="auto">
 
 ### Real-time charts:
 In this case, a user is sitting on the chair #1 while the chair #2 is free to seat. The time-axis was set to 1 minute but this can be easily changed on Node-RED to extend the time scale for a wider time-window on the chairs status.
@@ -60,7 +60,7 @@ In this case, the network state slider is set to 1 meaning the sensing nodes are
 
 Once the data is transmitted back from Node-RED to the gateway, a notification shows a message received on both Network and Interval topics.
 
-<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_network_changes.png" alt="Network changes topics">
+<img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_network_changes.png" alt="Network changes topics" width="500" height="auto">
 
 ## Instructions on how to use the system
 Firstly, make sure to have all hardware units, connect them as shown on the architecture image and provide adequate power source for each board. In this case, connect the ESP8266 module on a battery or via a USB-cable. As previously mentioned, it must be taken into account that push buttons will act as sensor to detect when the seat senses a person's weight or release.
