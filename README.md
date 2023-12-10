@@ -68,11 +68,11 @@ However, when trying to implement the sleep-mode it was not successful and due t
 
 Going deeper through the sleep mode for ESP8266[4], to implement the sleep mode in the sender code, it was tried to use the ESP.deepSleep(time[microseconds]) function. The following two options were both tested:
 
-1. Automatic Wake-Up (Timer Wake-Up): The ESP8266 automatically wakes up after the sleep time has elapsed. This is done by setting a sleep time when calling the ESP.deepSleep(time[microseconds) function. After this duration, the ESP8266 will wake up.
+- Automatic Wake-Up (Timer Wake-Up): The ESP8266 automatically wakes up after the sleep time has elapsed. This is done by setting a sleep time when calling the ESP.deepSleep(time[microseconds) function. After this duration, the ESP8266 will wake up.
 
 <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Automatic_Wake_Up.png">
 
-2. External Wake-Up: The ESP8266 can be woken up by an external event, such as the press of a button or a signal from a sensor. To enable the external wake-up source, the RST pin of the ESP8266 shall be connected to the button. Once the RST pin receives a LOW signal, the ESP8266 wakes up.
+- External Wake-Up: The ESP8266 can be woken up by an external event, such as the press of a button or a signal from a sensor. To enable the external wake-up source, the RST pin of the ESP8266 shall be connected to the button. Once the RST pin receives a LOW signal, the ESP8266 wakes up.
 
 <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/RST_Wake_Up.png">
 
