@@ -121,7 +121,7 @@ It starts when the device wakes up from sleep mode and start sensing the sensor 
 
 The WiFi antenna active time is then, t(antenna) = 10ms + 8µs = 10.008ms. \
 The CPU active time is then, t(CPU) = 5µs + 8µs + 10ms = 10.013ms. \
-The sleep time is t(sleep)= 5s. \
+The sleep time is t(sleep)= 5s.
 
 Thus, t(total) = 5 + 0.01 = 5.01s, d(active) = 0.01/5.01 = 0.002, d(sleep) = 0.998.
 The power consumption is then calculated from the active time, the current drawn in sleep mode 20µA, and the current drawn in full operation mode 76mA. 
