@@ -123,24 +123,30 @@ For the improvement of the system energy efficiency, the following method could 
 
 It starts when the device wakes up from sleep mode and start sensing the sensor state for 5µs. Then, it activates the WiFi antenna to listen for potential incoming message during 10ms concerning the network state. In the case the chair status has changed the ESP would have to submit a message containing two bytes (for the 2 different node information) at a minimal rate of 250bytes/s. The time taken would be then of 8µs for sending the data. Finally, the device enters in deep sleep mode for a duration of 5s. The enabling and disabling steps are assumed to be negligible. The WiFi antenna and the CPU are active at almost the same time and only the current drawn from both process active is known. 
 
-  |Description         | Process Time | Background|
+  |Process Description | Process Time | Background|
 |-----------------------|-----------|-----------|
 | WiFi active    | 10.008 ms     | 10 ms + 8us |
 | CPU active     | 10.031 ms     | 5us + 8us + 10ms |
 | Sleep time     | 5s            | - |
 | Total          | 5.010031 s    | CPU + Sleep time |
 
+Thus, the duty cicles are calculated as follows:
 
-The WiFi antenna active time is then, t(antenna) = 10ms + 8µs = 10.008ms. \
-The CPU active time is then, t(CPU) = 5µs + 8µs + 10ms = 10.013ms. \
-The sleep time is t(sleep)= 5s.
+$$DC(active) = 0.010031/5.010031$$
 
-Thus, t(total) = 5 + 0.01 = 5.01s, d(active) = 0.01/5.01 = 0.002, d(sleep) = 0.998.
-The power consumption is then calculated from the active time, the current drawn in sleep mode 20µA, and the current drawn in full operation mode 76mA. 
+$$DC(active) = 0.002$$
 
-So, P = 0.002x76 + 0.998x0.020 = 0.171mA, and the running time B = 3000/0.171 = 17544 hours = 730 days = 2 years.
+$$DC(sleep mode) = 0.998$$
 
-*This needs to be implemented and tested to verify the values are accurate.*
+The power consumption is then calculated from the active time, taking into account according to ESP guide that the current drawn in sleep mode 20µA, and the current drawn in full operation mode 76mA.
+
+$$P = 0.002 * 76 + 0.998*0.020 = 0.171mA$$ 
+
+and the running time,
+
+$$B = 3000/0.171 = 17544 hours = 730 days = 2 years $$
+
+### *This needs to be implemented and tested to verify the values are accurate.*
 
 ## Future Work 
 <p align="justify"> This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries.
