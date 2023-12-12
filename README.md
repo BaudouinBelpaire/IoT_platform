@@ -23,7 +23,7 @@ Regarding the wiring between the bridge and the gateway (see figure below) is wo
 This Architecture depicts the integrated system of the components described in previous section, Hardware Design, and how they are connected each other to perform this wireless sensor network as well as communication protocols in their different stages. 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture2.png" alt="Architecture"> </p>
 
-## Software Design
+### Software Design
 Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The 'WiFi', 'ESP-Now', 'ArduinoJson', and 'PubSubClient' libraries were used to facilitate the code implementation. Additionally, by using the ESP-NOW protocol  among the sensor nodes and the bridge is essential to get the [MAC address](https://github.com/DIEGO15457/Final-Project/blob/main/code/get_mac_address.ino) of each board. Thus, the flowcharts for the different nodes are shown below, and the codes for the [sensing node](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [WiFi gateway](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino) are available here.
 The sensing nodes code was designed to be energy efficient and so to send a notification only when the chair state changes (i.e the user sits down or stands up) instead of every time.
 
