@@ -2,10 +2,10 @@
 This project consists on design a small sensor network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers. 
 
 ## Team Members
-1. Ali Altaheri      - H00417357
-2. Ángel García      - H00417698
-3. Baudouin Belpaire - H00445613
-4. Diego Velasquez   - H00434521
+1. Ali Altaheri      - H00417357 - ama2023@hw.ac.uk 
+2. Ángel García      - H00417698 - ag2070@hw.ac.uk
+3. Baudouin Belpaire - H00445613 - bb2043@hw.ac.uk
+4. Diego Velasquez   - H00434521 - dev2000@hw.ac.uk
 
 ## Purpose of the system 
 <p align="justify"> The system’s purpose is to develop an IoT platform monitoring the chairs status in a remote environment. The chairs are equipped with pressure mat sensors detecting the presence of a person sitting on it. Thus, each chair represents a sensing node and communicates wirelessly its status with a bridge node. The bridge node consists of a bridge in the network gathering in a single point all the data from the different places in the environment. The gathered data is meant to be transferred through wired communication to a WiFi gateway enabling to connect the local application to an Internet connected one. The connection to an Internet access point is ensured through a MQTT broker communicating thanks to the MQTT protocol. This part is crucial as it allows the access from anywhere in the world to the local environment. From there, any users can be notified on the environment status and take the control remotely </p>
