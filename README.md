@@ -139,9 +139,9 @@ For the improvement of the system energy efficiency, the following method could 
 
 Thus, the duty cicles are calculated as follows:
 
-$DC(active) = 0.010031/5.010031$
+$$DC(active) = {0.010031 \over 5.010031}$$
 
-$DC(active) = 0.002$
+$$DC(active) = 0.002$$
 
 $$DC(sleep mode) = 0.998$$
 
