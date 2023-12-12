@@ -8,17 +8,17 @@ This project consists on design a small sensor network based on interconnected [
 4. Diego Velasquez   - H00434521
 
 ## Purpose of the system 
-The system’s purpose is to develop an IoT platform monitoring the chairs status in a remote environment. The chairs are equipped with pressure mat sensors detecting the presence of a person sitting on it. Thus, each chair represents a sensing node and communicates wirelessly its status with a bridge node. The bridge node consists of a bridge in the network gathering in a single point all the data from the different places in the environment. The gathered data is meant to be transferred through wired communication to a WiFi gateway enabling to connect the local application to an Internet connected one. The connection to an Internet access point is ensured through a MQTT broker communicating thanks to the MQTT protocol. This part is crucial as it allows the access from anywhere in the world to the local environment. From there, any users can be notified on the environment status and take the control remotely.
+<p align="justify"> The system’s purpose is to develop an IoT platform monitoring the chairs status in a remote environment. The chairs are equipped with pressure mat sensors detecting the presence of a person sitting on it. Thus, each chair represents a sensing node and communicates wirelessly its status with a bridge node. The bridge node consists of a bridge in the network gathering in a single point all the data from the different places in the environment. The gathered data is meant to be transferred through wired communication to a WiFi gateway enabling to connect the local application to an Internet connected one. The connection to an Internet access point is ensured through a MQTT broker communicating thanks to the MQTT protocol. This part is crucial as it allows the access from anywhere in the world to the local environment. From there, any users can be notified on the environment status and take the control remotely </p>
 
 ## Hardware Design
-In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been implemented on 4 different ESP8266 boards. The ESP8266 board is an optimal solution for IoT systems as it embeds a microprocessor, GPIOs, a WiFi antenna for wireless communications, and is also energy efficient. The WiFi antenna is used by the nodes to communicates over the ESP-Now technology using the WiFi bandwidth while consuming less power. The pressure mats are replaced by push buttons returning a digital signal (0 or 1) to the GPIO 5 on the board. The wired communication between the bridge and the gateway is performed through serial communication using the TX/RX ports. Finally, the gateway communicates with the online Mosquitto Broker thanks to the MQTT protocol used on a private WiFi network provided by Heriot-Watt University.
+<p align="justify"> In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been implemented on 4 different ESP8266 boards. The ESP8266 board is an optimal solution for IoT systems as it embeds a microprocessor, GPIOs, a WiFi antenna for wireless communications, and is also energy efficient. The WiFi antenna is used by the nodes to communicates over the ESP-Now technology using the WiFi bandwidth while consuming less power. The pressure mats are replaced by push buttons returning a digital signal (0 or 1) to the GPIO 5 on the board. The wired communication between the bridge and the gateway is performed through serial communication using the TX/RX ports. Finally, the gateway communicates with the online Mosquitto Broker thanks to the MQTT protocol used on a private WiFi network provided by Heriot-Watt University. </p>
 
 ### System Architecture:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture2.png" alt="Architecture">
 
 ## Software Design
-Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The 'WiFi', 'ESP-Now', 'ArduinoJson', and 'PubSubClient' libraries were used to facilitate the code implementation. Additionally, to establish communication among the sensor nodes and the bridge is essential to get the [MAC address](https://github.com/DIEGO15457/Final-Project/blob/main/code/get_mac_address.ino) of each board. Thus, the flowcharts for the different nodes are shown below, and the codes for the [sensing node](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [WiFi gateway](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino) are available here.
-The sensing nodes code was designed to be energy efficient and so to send a notification only when the chair state changes (i.e the user sits down or stands up) instead of every time.
+<p align="justify"> Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The 'WiFi', 'ESP-Now', 'ArduinoJson', and 'PubSubClient' libraries were used to facilitate the code implementation. Additionally, to establish communication among the sensor nodes and the bridge is essential to get the [MAC address](https://github.com/DIEGO15457/Final-Project/blob/main/code/get_mac_address.ino) of each board. Thus, the flowcharts for the different nodes are shown below, and the codes for the [sensing node](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [WiFi gateway](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino) are available here.
+The sensing nodes code was designed to be energy efficient and so to send a notification only when the chair state changes (i.e the user sits down or stands up) instead of every time. </p>
 
 ### Sensing node flowchart:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensing_node_flowchart.png" alt="Sensing Flowchart" width="600" height="auto">
@@ -29,50 +29,50 @@ The sensing nodes code was designed to be energy efficient and so to send a noti
 ### WiFi Gateway flowchart:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_flowchart.png" alt="WF Gateway Flowchart" width="600" height="auto">
 
-The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented.
+<p align="justify"> The MQTT Explorer application was also used to subscribe to the different topics used in the network allowing to debug the code implemented.
 
-Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval.
+Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval. </p>
 
 ### Node-RED Pipeline:
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Node-RED Pipeline.png" alt="Node-RED Pipeline" width="600" height="auto">
 
 ## Performance Tests
-The implementation of the IoT system was successful as it is possible to transmit the nodes status, to display their current status on real-time charts with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a dashboard on Node-RED.
+<p align="justify"> The implementation of the IoT system was successful as it is possible to transmit the nodes status, to display their current status on real-time charts with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a dashboard on Node-RED. </p>
 
 ### Data transmission:
-As follow is the bridge output terminal receiving a notification form the node #2 where the state has changed to 0. The transmitted data buffer is defined as [ID Node#1, State1, ID Node#2, State2]. The buffer is updated each time a notification is received from a sensing ndoe, otherwise the values are unchanged and sent over the wire every 10s. 
+<p align="justify"> As follow is the bridge output terminal receiving a notification form the node #2 where the state has changed to 0. The transmitted data buffer is defined as [ID Node#1, State1, ID Node#2, State2]. The buffer is updated each time a notification is received from a sensing ndoe, otherwise the values are unchanged and sent over the wire every 10s. </p>
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_outputs.png" alt="Bridge outputs" width="200" height="auto">
 
-On the gateway side, the message is received and decoded through the wired connection. Thus, the results dsiplayed on the monitor are the data sent over the MQTT protocol, the reporting interval, and the buffer data received.
+<p align="justify"> On the gateway side, the message is received and decoded through the wired connection. Thus, the results dsiplayed on the monitor are the data sent over the MQTT protocol, the reporting interval, and the buffer data received. </p>
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs.png" alt="Gateway outputs" width="200" height="auto">
 
 ### Real-time charts:
-In this case, a user is sitting on the chair #1 while the chair #2 is free to seat. The time-axis was set to 1 minute but this can be easily changed on Node-RED to extend the time scale for a wider time-window on the chairs status.
+<p align="justify"> In this case, a user is sitting on the chair #1 while the chair #2 is free to seat. The time-axis was set to 1 minute but this can be easily changed on Node-RED to extend the time scale for a wider time-window on the chairs status. </p>
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Nodes_states.png" alt="Charts" width="300" height="auto">
 
 ### Dashboard:
-In this case, the network state slider is set to 1 meaning the sensing nodes are actives. Furthermore, the reporting interval option is set to the default value of 10s but can be easily changed thanks to the input frame accepting any positive integers.
+<p align="justify"> In this case, the network state slider is set to 1 meaning the sensing nodes are actives. Furthermore, the reporting interval option is set to the default value of 10s but can be easily changed thanks to the input frame accepting any positive integers. </p>
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Dashboard.png" alt="Dashboard" width="300" height="auto">
 
-Once the data is transmitted back from Node-RED to the gateway, a notification shows a message received on both Network and Interval topics.
+<p align="justify"> Once the data is transmitted back from Node-RED to the gateway, a notification shows a message received on both Network and Interval topics. </p>
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_network_changes.png" alt="Network changes topics" width="500" height="auto">
 
 ## Instructions on how to use the system
-Firstly, make sure to have all hardware units, connect them as shown on the architecture image and provide adequate power source for each board. In this case, connect the ESP8266 module on a battery or via a USB-cable. As previously mentioned, it must be taken into account that push buttons will act as sensor to detect when the seat senses a person's weight or release.
+<p align="justify"> Firstly, make sure to have all hardware units, connect them as shown on the architecture image and provide adequate power source for each board. In this case, connect the ESP8266 module on a battery or via a USB-cable. As previously mentioned, it must be taken into account that push buttons will act as sensor to detect when the seat senses a person's weight or release.
 
 Secondly, download the algorithm for each module in order to process adequately the information for each parts. Every node has to be uploaded with the script called [sensing_node.ino](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge.ino](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [gateway.ino](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino). So far, the nodes can pair with bridge node through the esp-now communication protocol, and the bridge with the gateway through serial communication.
 
-Once, the system is connected to the MQTT server and the gateway successfully transmitting, the data provides information about the node ID and its current state. This is visualised in real-time, stored locally on a MongoDB application. The network characteristics can be remotely changed on the Node-RED application as the functioning status or the data reporting interval. The remote control tools can be found on the Dashboard pannel. From there, the slider network state allows to change the network operation mode, and the reporting interval value changes the transmission data rate. This one takes as input positive integer values. Thus, final users can remotely monitor the state of the seats to detect if they are occupied or not, and collect data over time to perform further data analytics. The [CSV file](https://github.com/DIEGO15457/Final-Project/blob/main/assets/Sensing_nodes_data.csv) obtained from the data collection with MongoDB is also accessible here.  
+Once, the system is connected to the MQTT server and the gateway successfully transmitting, the data provides information about the node ID and its current state. This is visualised in real-time, stored locally on a MongoDB application. The network characteristics can be remotely changed on the Node-RED application as the functioning status or the data reporting interval. The remote control tools can be found on the Dashboard pannel. From there, the slider network state allows to change the network operation mode, and the reporting interval value changes the transmission data rate. This one takes as input positive integer values. Thus, final users can remotely monitor the state of the seats to detect if they are occupied or not, and collect data over time to perform further data analytics. The [CSV file](https://github.com/DIEGO15457/Final-Project/blob/main/assets/Sensing_nodes_data.csv) obtained from the data collection with MongoDB is also accessible here.  </p>
 
 ## Problems & Solutions
-The major problems encountered were during the data transmission between the bridge and gateway through the serial communication and with the deep sleep mode. Concerning the serial communication, the Serial.print() function was used to send data over serial communication but it created interferences with the message displayed on the monitor to debug the code. Thus, the data transmitted had to be encoded between '<' and '>' to inform the receiver the the beginning and the end of the transmission. Thus, the receiver starts recording the data after reading a '<' and keeps the data until '>'. This encryption method is valid for both way to transmit sensor data from the brigde to the node, but also to transmit the network state change from the gateway to the bridge. 
+<p align="justify"> The major problems encountered were during the data transmission between the bridge and gateway through the serial communication and with the deep sleep mode. Concerning the serial communication, the Serial.print() function was used to send data over serial communication but it created interferences with the message displayed on the monitor to debug the code. Thus, the data transmitted had to be encoded between '<' and '>' to inform the receiver the the beginning and the end of the transmission. Thus, the receiver starts recording the data after reading a '<' and keeps the data until '>'. This encryption method is valid for both way to transmit sensor data from the brigde to the node, but also to transmit the network state change from the gateway to the bridge. 
 
-Concerning the sleep mode, it was tried to replace the delay() function at the end of the loop by a sleep mode to make the sensing node more energy efficient. However, this step failed the process as it was no longer able to send the data back to the bridge after waking up. Thus, this part was left on the side to concentrate on the main code. Furthermore, during the sleep mode, all components are switched off meaning that the node has a high probability to miss the change of state sent by the bridge. The trials on the sleep mode implementation are further detailed in the next section. 
+Concerning the sleep mode, it was tried to replace the delay() function at the end of the loop by a sleep mode to make the sensing node more energy efficient. However, this step failed the process as it was no longer able to send the data back to the bridge after waking up. Thus, this part was left on the side to concentrate on the main code. Furthermore, during the sleep mode, all components are switched off meaning that the node has a high probability to miss the change of state sent by the bridge. The trials on the sleep mode implementation are further detailed in the next section. </p>
 
 ## Critical Analysis 
 The system complies with all the requirements specified in the coursework statement, but not the sleep mode:
@@ -97,8 +97,8 @@ The first approach is to put the ESP8266 into sleep mode after the data is sent.
 To address this issue, the best thing to do is making sure ESP-Now is connected to the same WiFi channel all the time and for the whole system (all sensors and receiver), forcing the connection to it when initializing the system and the sensors after waking-up. However, there are other options such as resetting every connection on the receiver every time a sensor wakes up. 
 
 ### Energy Consumption
-Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented. Thus, the duty cycle of the system is 1 as the current drawn over the cycle does not vary, which is due to the CPU and antennas that are continuously running.
-Measuring the voltage and current directly from  the sensing unit, it gets:
+<p align="justify"> Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented. Thus, the duty cycle of the system is 1 as the current drawn over the cycle does not vary, which is due to the CPU and antennas that are continuously running.
+Measuring the voltage and current directly from  the sensing unit, it gets: </p
 
 <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/20231128_103304.jpg" width="500">
 
@@ -134,9 +134,9 @@ So, P = 0.002x76 + 0.998x0.020 = 0.171mA, and the running time B = 3000/0.171 = 
 *This needs to be implemented and tested to verify the values are accurate.*
 
 ## Future Work 
-This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries.
+<p align="justify"> This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries.
 
-Moreover, the particular approach of how to achieve of proper connection using a gateway to establish connection with a remote client to get data in real time allowing to store data through the time. Historical data like this (number of node and states) will allow to make predictions about the frequency of usage the controlled device and as consequence to establish proper actions as for example to add more seats for the space assessed and even to detect if specific links into the system is broken receiving an new state of "Link Broken"
+Moreover, the particular approach of how to achieve of proper connection using a gateway to establish connection with a remote client to get data in real time allowing to store data through the time. Historical data like this (number of node and states) will allow to make predictions about the frequency of usage the controlled device and as consequence to establish proper actions as for example to add more seats for the space assessed and even to detect if specific links into the system are broken receiving an new state of "Link Broken" </p>
 
 ## References
 
