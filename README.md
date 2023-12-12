@@ -37,7 +37,7 @@ Finally, the Node-RED tool was used to visualise the data in real-time, to store
 ### Node-RED Pipeline:
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Node-RED Pipeline.png" alt="Node-RED Pipeline" width="600" height="auto"> </p>
 
-## Performance Tests
+### Performance Tests
 <p align="justify"> The implementation of the IoT system was successful as it is possible to transmit the nodes status, to display their current status on real-time charts with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a dashboard on Node-RED. </p>
 
 ### Data transmission:
@@ -63,19 +63,19 @@ Finally, the Node-RED tool was used to visualise the data in real-time, to store
 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_network_changes.png" alt="Network changes topics" width="500" height="auto"> </p>
 
-## Instructions on how to use the system
+### Instructions on how to use the system
 <p align="justify"> Firstly, make sure to have all hardware units, connect them as shown on the architecture image and provide adequate power source for each board. In this case, connect the ESP8266 module on a battery or via a USB-cable. As previously mentioned, it must be taken into account that push buttons will act as sensor to detect when the seat senses a person's weight or release.
 
 Secondly, download the algorithm for each module in order to process adequately the information for each parts. Every node has to be uploaded with the script called [sensing_node.ino](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge.ino](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [gateway.ino](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino). So far, the nodes can pair with bridge node through the esp-now communication protocol, and the bridge with the gateway through serial communication.
 
 Once, the system is connected to the MQTT server and the gateway successfully transmitting, the data provides information about the node ID and its current state. This is visualised in real-time, stored locally on a MongoDB application. The network characteristics can be remotely changed on the Node-RED application as the functioning status or the data reporting interval. The remote control tools can be found on the Dashboard pannel. From there, the slider network state allows to change the network operation mode, and the reporting interval value changes the transmission data rate. This one takes as input positive integer values. Thus, final users can remotely monitor the state of the seats to detect if they are occupied or not, and collect data over time to perform further data analytics. The [CSV file](https://github.com/DIEGO15457/Final-Project/blob/main/assets/Sensing_nodes_data.csv) obtained from the data collection with MongoDB is also accessible here.  </p>
 
-## Problems & Solutions
+### Problems & Solutions
 <p align="justify"> The major problems encountered were during the data transmission between the bridge and gateway through the serial communication and with the deep sleep mode. Concerning the serial communication, the Serial.print() function was used to send data over serial communication but it created interferences with the message displayed on the monitor to debug the code. Thus, the data transmitted had to be encoded between '<' and '>' to inform the receiver the beginning and the end of the transmission. Thus, the receiver starts recording the data after reading a '<' and keeps the data until '>'. This encryption method is valid for both way to transmit sensor data from the brigde to the node, but also to transmit the network state change from the gateway to the bridge. 
 
 Concerning the sleep mode, it was tried to replace the delay() function at the end of the loop by a sleep mode to make the sensing node more energy efficient. However, this step failed the process as it was no longer able to send the data back to the bridge after waking up. Thus, this part was left on the side to concentrate on the main code. Furthermore, during the sleep mode, all components are switched off meaning that the node has a high probability to miss the change of state sent by the bridge. The trials on the sleep mode implementation are further detailed in the next section. </p>
 
-## Critical Analysis 
+### Critical Analysis 
 The system complies with all the requirements specified in the coursework statement, but not the sleep mode:
 - It captures all the push events from the remote devices.
 - It implements the communication from sensors to gateway via ESP-Now.
@@ -148,12 +148,12 @@ $$B = 3000/0.171 = 17544 hours = 730 days = 2 years $$
 
 *This needs to be implemented and tested to verify the values are accurate.*
 
-## Future Work 
+### Future Work 
 <p align="justify"> This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries.
 Moreover, the particular approach of how to achieve of proper connection using a gateway to establish connection with a remote client to get data in real time allowing to store data through the time. Historical data like this (number of node and states) will allow to make predictions about the frequency of usage the controlled device and as consequence to establish proper actions as for example to add more seats for the space assessed and even to detect if specific links into the system are broken receiving an new state of "Link Broken" 
 As it was mentioned, the Sleep mode will be implemented in next stage, so this network would be more efficient by managing to maximise the power supplier. Furthermore, another step would be to deploy a security layer in order to reduce external risks and control the confidentiality of stored data preventing erroneous manipulation on it either by unauthorized users or non trained personal depending on the complexity of the data </p>
 
-## References
+### References
 
 [1] https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf (Access Nov-2023).
 
