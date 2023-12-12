@@ -123,6 +123,14 @@ For the improvement of the system energy efficiency, the following method could 
 
 It starts when the device wakes up from sleep mode and start sensing the sensor state for 5µs. Then, it activates the WiFi antenna to listen for potential incoming message during 10ms concerning the network state. In the case the chair status has changed the ESP would have to submit a message containing two bytes (for the 2 different node information) at a minimal rate of 250bytes/s. The time taken would be then of 8µs for sending the data. Finally, the device enters in deep sleep mode for a duration of 5s. The enabling and disabling steps are assumed to be negligible. The WiFi antenna and the CPU are active at almost the same time and only the current drawn from both process active is known. 
 
+  |Description         | Process Time | Background|
+|-----------------------|-----------|-----------|
+| WiFi active    | 10.008 ms     | 10 ms + 8us |
+| CPU active     | 10.031 ms     | 5us + 8us + 10ms |
+| Sleep time     | 5s            | - |
+| Total          | 5.010031 s    | CPU + Sleep time |
+
+
 The WiFi antenna active time is then, t(antenna) = 10ms + 8µs = 10.008ms. \
 The CPU active time is then, t(CPU) = 5µs + 8µs + 10ms = 10.013ms. \
 The sleep time is t(sleep)= 5s.
