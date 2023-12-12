@@ -16,8 +16,7 @@ This project consists on design a small sensor network based on interconnected [
 <p align="justify"> The reason why the bridge and the gateway have been implemented in different modules is due to ESP-Now does not work simultaneously with Wi-Fi. This problem is well documented in Internet forums [2], [3]. Additionally separating the receiver (bridge) from the Wi-Fi transmitter (gateway) allows to check the serial connection works properly. Thinking in a real implementation is also more suitable to separate both functions and connect an external antenna with split connectors to both bridge and gateway to maximize the range.
 Regarding the wiring between the bridge and the gateway (see figure below) is worth noting that TX/RX shall be crossed and when loading the code onto the boards it is required to disconnect.</p>
 
-<p align="center"><img src= "https://github.com/DIEGO15457/Final-Project/blob/main/assets/WiFi_Tx_receiver_wiring.png", width="200" height="auto">
-
+<p align="center"><img src= "https://github.com/DIEGO15457/Final-Project/blob/main/assets/WiFi_Tx_receiver_wiring.png", width="200" height="auto"></p>
 
 ### System Architecture:
 This Architecture depicts the integrated system of the components described in previous section, Hardware Design, and how they are connected each other to perform this wireless sensor network as well as communication protocols in their different stages. 
