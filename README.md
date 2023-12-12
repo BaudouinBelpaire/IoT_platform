@@ -143,19 +143,19 @@ For the improvement of the system energy efficiency, the following method could 
 
 Thus, the duty cicles are calculated as follows:
 
-$$DC(active) = {0.010031 \over 5.010031}$$
+<p align="center"> DC(active) = 0.010031 / 5.010031 </p>
 
-$$DC(active) = 0.002$$
+<p align="center"> DC(active) = 0.002 </p>
 
-$$DC(sleep mode) = 0.998$$
+<p align="center"> DC(sleep mode) = 0.998 </p>
 
 The power consumption is then calculated from the active time, taking into account according to ESP guide that the current drawn in sleep mode 20µA, and the current drawn in full operation mode 76mA.
 
-$$P = 0.002 * 76 + 0.998*0.020 = 0.171mA$$ 
+<p align="center"> P = 0.002 * 76 + 0.998*0.020 = 0.171mA </p>
 
 and the running time,
 
-$$B = 3000/0.171 = 17544 hours = 730 days = 2 years $$
+<p align="center"> B = 3000 / 0.171 = 17544 hours = 730 days = 2 years </p>
 
 *This needs to be implemented and tested to verify the values are accurate.*
 
