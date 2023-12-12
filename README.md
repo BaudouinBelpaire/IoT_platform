@@ -164,5 +164,7 @@ As it was mentioned, the Sleep mode will be implemented in next stage, so this n
 
 [4] https://microcontrollerslab.com/esp8266-deep-sleep-wake-up-sources-arduino-ide/ (Access Nov 2023).
 
+Kubov, V. I., Dymytrov, Y. Y., Stojanović, R., Kubova, R. M., & Škraba, A. (2020, June). A Feasible IoT System for Monitoring PPG and ECG Signals by using Low-cost Systems-on-chips and HTML Interface. In 2020 9th Mediterranean Conference on Embedded Computing (MECO) (pp. 1-4). IEEE.‏ DOI: 10.1109/MECO49872.2020.9134219 
+
 
 
