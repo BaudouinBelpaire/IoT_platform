@@ -11,6 +11,8 @@ This project consists on design a small sensor network based on interconnected [
 <p align="justify"> The system’s purpose is to develop an IoT platform monitoring the chairs status in a remote environment. The chairs are equipped with pressure mat sensors detecting the presence of a person sitting on it. Thus, each chair represents a sensing node and communicates wirelessly its status with a bridge node. The bridge node consists of a bridge in the network gathering in a single point all the data from the different places in the environment. The gathered data is meant to be transferred through wired communication to a WiFi gateway enabling to connect the local application to an Internet connected one. The connection to an Internet access point is ensured through a MQTT broker communicating thanks to the MQTT protocol. This part is crucial as it allows the access from anywhere in the world to the local environment. From there, any users can be notified on the environment status and take the control remotely.</p>
 <p align="justify"> The behaviour of the system to implement can be described by the following flowchart diagram: </p>
 
+<p align="center"><img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Flow_chart.png"></p>
+
 
 
 ### Hardware Design
