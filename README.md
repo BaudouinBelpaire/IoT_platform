@@ -49,7 +49,7 @@ Finally, the Node-RED tool was used to visualise the data in real-time, to store
 ## Performance Tests
 <p align="justify"> The implementation of the IoT system was successful as it is possible to transmit the nodes status, to display their current status on real-time charts with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a dashboard on Node-RED. </p>
 
-## Data transmission:
+### Data transmission:
 <p align="justify"> As follow is the bridge output terminal receiving a notification form the node #2 where the state has changed to 0. The transmitted data buffer is defined as [ID Node#1, State1, ID Node#2, State2]. The buffer is updated each time a notification is received from a sensing ndoe, otherwise the values are unchanged and sent over the wire every 10s. </p>
 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Bridge_outputs.png" alt="Bridge outputs" width="200" height="auto"> </p>
@@ -58,12 +58,12 @@ Finally, the Node-RED tool was used to visualise the data in real-time, to store
 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs.png" alt="Gateway outputs" width="200" height="auto"> </p>
 
-## Real-time charts:
+### Real-time charts:
 <p align="justify"> In this case, a user is sitting on the chair #1 while the chair #2 is free to seat. The time-axis was set to 1 minute but this can be easily changed on Node-RED to extend the time scale for a wider time-window on the chairs status. </p>
 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Nodes_states.png" alt="Charts" width="300" height="auto"> </p>
 
-## Dashboard:
+### Dashboard:
 <p align="justify"> In this case, the network state slider is set to 1 meaning the sensing nodes are actives. Furthermore, the reporting interval option is set to the default value of 10s but can be easily changed thanks to the input frame accepting any positive integers. </p>
 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Dashboard.png" alt="Dashboard" width="300" height="auto"> </p>
