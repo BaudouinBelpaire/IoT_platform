@@ -100,7 +100,7 @@ To address this issue, the best thing to do is making sure ESP-Now is connected 
 
 ### Energy Consumption
 <p align="justify"> Regarding the energy consumption, it is assumed the scenario with no sleep mode implemented. Thus, the duty cycle of the system is 1 as the current drawn over the cycle does not vary, which is due to the CPU and antennas that are continuously running.
-Measuring the voltage and current directly from  the sensing unit, it gets: </p
+Measuring the voltage and current directly from  the sensing unit, it gets: </p>
 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/20231128_103304.jpg" width="500"> </p>
 
@@ -122,7 +122,7 @@ For the improvement of the system energy efficiency, the following method could 
 
 <p align="center"> <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/New_energy_consumption.png" width="600" height="auto"> </p>
 
-It starts when the device wakes up from sleep mode and start sensing the sensor state for 5µs. Then, it activates the WiFi antenna to listen for potential incoming message during 10ms concerning the network state. In the case the chair status has changed the ESP would have to submit a message containing two bytes (for the 2 different node information) at a minimal rate of 250bytes/s. The time taken would be then of 8µs for sending the data. Finally, the device enters in deep sleep mode for a duration of 5s. The enabling and disabling steps are assumed to be negligible. The WiFi antenna and the CPU are active at almost the same time and only the current drawn from both process active is known. 
+<p align="justify"> It starts when the device wakes up from sleep mode and start sensing the sensor state for 5µs. Then, it activates the WiFi antenna to listen for potential incoming message during 10ms concerning the network state. In the case the chair status has changed the ESP would have to submit a message containing two bytes (for the 2 different node information) at a minimal rate of 250bytes/s. The time taken would be then of 8µs for sending the data. Finally, the device enters in deep sleep mode for a duration of 5s. The enabling and disabling steps are assumed to be negligible. The WiFi antenna and the CPU are active at almost the same time and only the current drawn from both process active is known. </p>
 
   |Process Description | Process Time | Background|
 |-----------------------|-----------|-----------|
@@ -150,9 +150,9 @@ $$B = 3000/0.171 = 17544 hours = 730 days = 2 years $$
 *This needs to be implemented and tested to verify the values are accurate.*
 
 ### Future Work 
-<p align="justify"> This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries.
-Moreover, the particular approach of how to achieve of proper connection using a gateway to establish connection with a remote client to get data in real time allowing to store data through the time. Historical data like this (number of node and states) will allow to make predictions about the frequency of usage the controlled device and as consequence to establish proper actions as for example to add more seats for the space assessed and even to detect if specific links into the system are broken receiving an new state of "Link Broken" 
-As it was mentioned, the Sleep mode will be implemented in next stage, so this network would be more efficient by managing to maximise the power supplier. Furthermore, another step would be to deploy a security layer in order to reduce external risks and control the confidentiality of stored data preventing erroneous manipulation on it either by unauthorized users or non trained personal depending on the complexity of the data </p>
+<p align="justify"> This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean condition) like this project or to widen it with more conditions of stages. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption of energy allowing to get extender lifetime of power source as batteries. </p>
+<p align="justify">Moreover, the particular approach of how to achieve of proper connection using a gateway to establish connection with a remote client to get data in real time allowing to store data through the time. Historical data like this (number of node and states) will allow to make predictions about the frequency of usage the controlled device and as consequence to establish proper actions as for example to add more seats for the space assessed and even to detect if specific links into the system are broken receiving an new state of "Link Broken". </p>
+<p align="justify">As it was mentioned, the Sleep mode will be implemented in next stage, so this network would be more efficient by managing to maximise the power supplier. Furthermore, another step would be to deploy a security layer in order to reduce external risks and control the confidentiality of stored data preventing erroneous manipulation on it either by unauthorized users or non trained personal depending on the complexity of the data </p>
 
 ### References
 
