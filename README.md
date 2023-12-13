@@ -24,7 +24,7 @@ The system has been designed to be assembled as shown in the following diagram.
 <p align="center"><img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Electrical_diagram.png" width="400"></p>
 
 ## Software Design
-Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The 'WiFi', 'ESP-Now', 'ArduinoJson', and 'PubSubClient' libraries were used to facilitate the code implementation. Additionally, by using the ESP-NOW protocol  among the sensor nodes and the bridge is essential to get the [MAC address](https://github.com/DIEGO15457/Final-Project/blob/main/code/get_mac_address.ino) of each board. Thus, the flowcharts for the different nodes are shown below, and the codes for the [sensing node](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [WiFi gateway](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino) are available here.
+Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The 'WiFi', ['ESP-Now'](https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/) [4], 'ArduinoJson', and 'PubSubClient' libraries were used to facilitate the code implementation. Additionally, by using the ESP-NOW protocol  among the sensor nodes and the bridge is essential to get the [MAC address](https://github.com/DIEGO15457/Final-Project/blob/main/code/get_mac_address.ino) of each board. Thus, the flowcharts for the different nodes are shown below, and the codes for the [sensing node](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [WiFi gateway](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino) are available here.
 The sensing nodes code was designed to be energy efficient and so to send a notification only when the chair state changes (i.e the user sits down or stands up) instead of every time.
 
 ### Communication system's architecture:
@@ -102,7 +102,7 @@ The system complies with all the requirements specified in the coursework statem
 
 However, when trying to implement the sleep-mode it was not successful and due to the lack of time we could not try different solutions.
 
-Going deeper through the sleep mode for ESP8266[4], to implement the sleep mode in the sender code, it was tried to use the ESP.deepSleep(time[microseconds]) function. The following two options were both tested:
+Going deeper through the sleep mode for ESP8266 [5], to implement the sleep mode in the sender code, it was tried to use the ESP.deepSleep(time[microseconds]) function. The following two options were both tested:
 
 - Automatic Wake-Up (Timer Wake-Up): The ESP8266 automatically wakes up after the sleep time has elapsed. This is done by setting a sleep time when calling the ESP.deepSleep(time[microseconds) function. After this duration, the ESP8266 will wake up.
 
@@ -174,14 +174,15 @@ and the running time,
 
 ## References
 
-[1] https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf (Access Nov-2023).
+[1] [https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) (Access Nov 2023).
 
-[2] https://espressif-docs.readthedocs-hosted.com/projects/esp-faq/en/latest/application-solution/esp-now.html#:~:text=Yes%2C%20but%20it%20should%20be%20noted%20that%20the,the%20same%20as%20that%20of%20the%20connected%20AP. (Access Nov 2023).
+[2] [https://espressif-docs.readthedocs-hosted.com/projects/esp-faq/en/latest/application-solution/esp-now.html](https://espressif-docs.readthedocs-hosted.com/projects/esp-faq/en/latest/application-solution/esp-now.html#:~:text=Yes%2C%20but%20it%20should%20be%20noted%20that%20the,the%20same%20as%20that%20of%20the%20connected%20AP) (Access Nov 2023).
 
-[3] https://github.com/espressif/arduino-esp32/issues/878 (Access Nov-2023).
+[3] [https://github.com/espressif/arduino-esp32/issues/878](https://github.com/espressif/arduino-esp32/issues/878) (Access Nov 2023).
 
-[4] https://microcontrollerslab.com/esp8266-deep-sleep-wake-up-sources-arduino-ide/ (Access Nov 2023).
+[4] [https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/](https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/) (Access Nov 2023).
 
+[5] [https://microcontrollerslab.com/esp8266-deep-sleep-wake-up-sources-arduino-ide/](https://microcontrollerslab.com/esp8266-deep-sleep-wake-up-sources-arduino-ide/) (Access Nov 2023).
 
 
 
