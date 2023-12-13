@@ -9,11 +9,10 @@ This project consists on designing a remote sensing network based on interconnec
 
 ## Purpose of the system 
 <p align="justify"> The system’s purpose is to develop an IoT platform monitoring the chairs status in a remote environment. The chairs are equipped with pressure mat sensors detecting the presence of a person sitting on it. Thus, each chair represents a sensing node and communicates wirelessly its status with a bridge node. The bridge node consists of a bridge in the network gathering in a single point all the data from the different places in the environment. The gathered data is meant to be transferred through wired communication to a WiFi gateway enabling to connect the local application to an Internet connected one. The connection to an Internet access point is ensured through a MQTT broker communicating thanks to the MQTT protocol. This part is crucial as it allows the access from anywhere in the world to the local environment. From there, any users can be notified on the environment status and take the control remotely.</p>
-<p align="justify"> The behaviour of the system to implement can be described by the following flowchart diagram: </p>
 
-<p align="center"><img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Flow_chart.png"></p>
+<p align="justify"> The overall behaviour of the system to implement can be described by the following architecture diagram. The different parts are further detailed in the Hardware and Software sections. </p>
 
-
+<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture2.png" alt="Architecture"> </p>
 
 ## Hardware Design
 <p align="justify"> In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been implemented on 4 different ESP8266 boards. The ESP8266 board is an optimal solution for IoT systems as it embeds a microprocessor, GPIOs, a WiFi antenna for wireless communications, and is also energy efficient. The WiFi antenna is used by the nodes to communicates over the ESP-Now technology using the WiFi bandwidth while consuming less power. The pressure mats are replaced by push buttons returning a digital signal (0 or 1) to the GPIO 5 on the board. The wired communication between the bridge and the gateway is performed through serial communication using the TX/RX ports. Finally, the gateway communicates with the online Mosquitto Broker thanks to the MQTT protocol used on a private WiFi network provided by Heriot-Watt University. </p>
@@ -24,13 +23,16 @@ Regarding the wiring between the bridge and the gateway (see figure below), it i
 The system has been designed to be assembled as shown in the following diagram.
 <p align="center"><img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Electrical_diagram.png" width="400"></p>
 
-## System Architecture:
-This Architecture depicts the integrated system of the components described in previous section, Hardware Design, and how they are connected each other to perform this wireless sensor network as well as communication protocols in their different stages. 
-<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture2.png" alt="Architecture"> </p>
-
 ## Software Design
 Concerning the software part, the Arduino IDE was used to program the different ESP8266 nodes. The 'WiFi', 'ESP-Now', 'ArduinoJson', and 'PubSubClient' libraries were used to facilitate the code implementation. Additionally, by using the ESP-NOW protocol  among the sensor nodes and the bridge is essential to get the [MAC address](https://github.com/DIEGO15457/Final-Project/blob/main/code/get_mac_address.ino) of each board. Thus, the flowcharts for the different nodes are shown below, and the codes for the [sensing node](https://github.com/DIEGO15457/Final-Project/blob/main/code/sensing_node.ino), [bridge](https://github.com/DIEGO15457/Final-Project/blob/main/code/bridge.ino), and [WiFi gateway](https://github.com/DIEGO15457/Final-Project/blob/main/code/gateway.ino) are available here.
 The sensing nodes code was designed to be energy efficient and so to send a notification only when the chair state changes (i.e the user sits down or stands up) instead of every time.
+
+### Communication system's architecture:
+<p align="justify"> The following forward communication diagram describes the process to send the data from the sensing nodes to the Node-RED client. </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Forward_communication.png" alt="Forward communication" width="auto" height="300"> </p>
+
+<p align="justify"> The following backward communication diagram describes the reverse process to send the network control data from the Node-RED client to the sensing nodes. </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Backward_communication.png" alt="Backward communication" width="auto" height="300"> </p>
 
 ### Sensing node flowchart:
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensing_node_flowchart.png" alt="Sensing Flowchart" width="600" height="auto"> </p>
