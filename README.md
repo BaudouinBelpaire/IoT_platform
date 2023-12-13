@@ -60,7 +60,7 @@ For the network control side, the Node-RED application is made of two different 
 
 <p align="justify"> On the gateway side, the message is received and decoded through the wired connection. Thus, the results dsiplayed on the monitor are the data sent over the MQTT protocol, the reporting interval, and the buffer data received. </p>
 
-<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs.png" alt="Gateway outputs" width="200" height="auto"> </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Gateway_outputs_new.png" alt="Gateway outputs" width="200" height="auto"> </p>
 
 ### Real-time charts:
 <p align="justify"> In this case, a user is sitting on the chair #1 while the chair #2 is free to seat. The time-axis was set to 1 minute but this can be easily changed on Node-RED to extend the time scale for a wider time-window on the chairs status. </p>
