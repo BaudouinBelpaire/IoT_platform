@@ -29,10 +29,10 @@ The sensing nodes code was designed to be energy efficient and so to send a noti
 
 ### Communication system's architecture:
 <p align="justify"> The following forward communication diagram describes the process to send the data from the sensing nodes to the Node-RED client. </p>
-<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Forward_communication.png" alt="Forward communication" width="auto" height="200"> </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Forward_communication.png" alt="Forward communication" width="auto" height="120"> </p>
 
 <p align="justify"> The following backward communication diagram describes the reverse process to send the network control data from the Node-RED client to the sensing nodes. </p>
-<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Backward_communication.png" alt="Backward communication" width="auto" height="200"> </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Backward_communication.png" alt="Backward communication" width="auto" height="120"> </p>
 
 ### Sensing node flowchart:
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Sensing_node_flowchart.png" alt="Sensing Flowchart" width="600" height="auto"> </p>
