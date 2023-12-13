@@ -44,7 +44,7 @@ The sensing nodes code was designed to be energy efficient and so to send a noti
 Finally, the Node-RED tool was used to visualise the data in real-time, to store it on a local database using MongoDB application, and to modify remotely the network parameters such as the working state, or the data reporting interval. </p>
 
 ### Node-RED Pipeline:
-<p align="center"> The pipeline is divided into two different sections: the data received, and the network control.
+<p align="justify"> The pipeline is divided into two different sections: the data received, and the network control.
 The Node-RED client subscribes to the “State” topic and gets the data as a JSON payload. The whole data is kept and saved on the MongoDB database with the timestamp. Furthermore, the node #1 and node #2 states are retrieved from the data payload and plotted on charts.
 For the network control side, the Node-RED application is made of two different panels that takes as input an integer for the reporting interval, and a boolean for the network state. Then, the data is converted to a JSON payload and published according to the corresponding topics “Interval” or “Network”. </p>
 
