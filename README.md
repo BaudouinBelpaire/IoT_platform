@@ -138,7 +138,7 @@ Getting the minimum voltage that makes the ESP8266 work-76mA of continous curren
 
 For the improvement of the system energy efficiency, the following method could be implemented to reduce the time for which the CPU and the WiFi antenna are in full operation mode. 
 
-<p align="center"> <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/New_energy_consumption.png" width="600" height="auto"> </p>
+<p align="center"> <img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/New_energy_consumption.png" width="400" height="auto"> </p>
 
 <p align="justify"> It starts when the device wakes up from sleep mode and start sensing the sensor state for 5µs. Then, it activates the WiFi antenna to listen for potential incoming message during 10ms concerning the network state. In the case the chair status has changed the ESP would have to submit a message containing two bytes (for the 2 different node information) at a minimal rate of 250bytes/s. The time taken would be then of 8µs for sending the data. Finally, the device enters in deep sleep mode for a duration of 5s. The enabling and disabling steps are assumed to be negligible. The WiFi antenna and the CPU are active at almost the same time and only the current drawn from both process active is known. </p>
 
