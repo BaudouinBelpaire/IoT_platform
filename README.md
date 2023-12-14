@@ -16,13 +16,14 @@ This project consists on designing a remote sensing network based on interconnec
 
 ## Hardware Design
 <p align="justify"> In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been implemented on 4 different ESP8266 boards. The ESP8266 board is an optimal solution for IoT systems as it embeds a microprocessor, GPIOs, a WiFi antenna for wireless communications, and is also energy efficient. The WiFi antenna is used by the nodes to communicates over the ESP-Now technology using the WiFi bandwidth while consuming less power. The pressure mats are replaced by push buttons returning a digital signal (0 or 1) to the GPIO 5 on the board. The wired communication between the bridge and the gateway is performed through serial communication using the TX/RX ports. Finally, the gateway communicates with the online Mosquitto Broker thanks to the MQTT protocol used on a private WiFi network provided by Heriot-Watt University. </p>
-<p align="justify"> The reason why the bridge and the gateway have been implemented in different modules is due to ESP-Now does not work simultaneously with Wi-Fi. This problem is well documented in Internet forums [2], [3]. Additionally separating the receiver (bridge) from the Wi-Fi transmitter (gateway) allows to check the serial connection works properly. Thinking in a real implementation is also more suitable to separate both functions and connect an external antenna with split connectors to both bridge and gateway to maximize the range.
-Regarding the wiring between the bridge and the gateway (see figure below), it is worth noting that TX/RX shall be crossed and when loading the code onto the boards it is required to disconnect the wires to avoid interferences.</p>
 
 ### Architecture diagram:
 The following architecture diagram shows in depth the system design and the different components included in the system with their communication technology.
 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Architecture2.png" alt="Architecture"> </p>
+
+<p align="justify"> The reason why the bridge and the gateway have been implemented in different modules is due to ESP-Now does not work simultaneously with Wi-Fi. This problem is well documented in Internet forums [2], [3]. Additionally separating the receiver (bridge) from the Wi-Fi transmitter (gateway) allows to check the serial connection works properly. Thinking in a real implementation is also more suitable to separate both functions and connect an external antenna with split connectors to both bridge and gateway to maximize the range.
+Regarding the wiring between the bridge and the gateway (see figure below), it is worth noting that TX/RX shall be crossed and when loading the code onto the boards it is required to disconnect the wires to avoid interferences.</p>
 
 ### ESP8266 electrical wirings:
 The system has been designed to be assembled as shown in the following diagram for the different ESP8266 boards.
