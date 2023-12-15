@@ -1,5 +1,5 @@
 # Wireless Sensor Network
-This project consists on designing a remote sensing network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers. 
+This project consists on implementing a remote sensing network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers through communication protocols for projects related to Internet of Things (IoT). 
 
 ## Team Members
 1. Ali Altaheri      - H00417357 - ama2023@hw.ac.uk 
@@ -26,7 +26,7 @@ The following architecture diagram shows in depth the system design and the diff
 Regarding the wiring between the bridge and the gateway (see figure below), it is worth noting that TX/RX shall be crossed and when loading the code onto the boards it is required to disconnect the wires to avoid interferences.</p>
 
 ### ESP8266 electrical wirings:
-The system has been designed to be assembled as shown in the following diagram for the different ESP8266 boards.
+The system has been implemented as shown in the following diagram for the different ESP8266 boards.
 
 <p align="center"><img src= "https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Electrical_diagram.png" width="400"></p>
 
@@ -62,7 +62,8 @@ For the network control side, the Node-RED application is made of two different 
 <p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/Node-RED Pipeline.png" alt="Node-RED Pipeline" width="600" height="auto"> </p>
 
 ## Performance Tests
-<p align="justify"> The implementation of the IoT system was successful as it is possible to transmit the nodes status, to display their current status on real-time charts with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a dashboard on Node-RED. </p>
+<p align="justify"> The implementation of the IoT system was successful as it is possible to transmit the nodes status, to display their current status on real-time charts with Node-RED, but also to change the network status or the reporting interval from a remote location thanks to a dashboard on Node-RED. To continue, it is added extra details about every stage of the system.</p>
+
 
 ### Data transmission:
 <p align="justify"> As follow is the bridge output terminal receiving a notification form the node #2 where the state has changed to 0. The transmitted data buffer is defined as [ID Node#1, State1, ID Node#2, State2]. The buffer is updated each time a notification is received from a sensing ndoe, otherwise the values are unchanged and sent over the wire every 10s. </p>
@@ -175,7 +176,7 @@ and the running time,
 *This needs to be implemented and tested to verify the values are accurate.*
 
 ## Future Work 
-<p align="justify"> This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean values) as in the project or to widen it with more conditions of stages with pressure mats based on analog signals. However, the implementation of new sensing nodes in the system requires maintenance to updates the programs and reupload them on the new sensing nodes, the bridge, and the gateway. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption to extend the lifetime of power sources such as batteries. </p>
+<p align="justify"> This system can be adapted to different schemes where the main purpose will be monitoring states of devices with just two modes (boolean values) as in the project or to widen it with more conditions of stages with pressure mats based on analog signals. However, the implementation of new sensing nodes in the system requires maintenance to updates the programs and reupload them on the new sensing nodes, the bridge, and the gateway. Furthermore, it may also leverage the way of communication using the ESP-Now protocol which offers low-power consumption to extend the lifetime of power sources such as batteries. In this sense, this approach may be applied in different domains of industry included in large scale projects.</p>
 <p align="justify"> Moreover, the communication established between the gateway and the remote client allows to get data in real time and to store it for historical records. These data, as the node ID and its state, will allow to make predictions about the frequency of chairs usage. This insightful data can be later used to better understand the conditions of the environment depending on specific parameters and so to adapt the number of chairs, and their working time to prevent them to break while someone is sitting. In addition, in case power batteries must be saved or if the room is expected to be unused, the devices can be easily paused. An additional interesting feature would be the implementation of a “broken link” method to detect a failure in the node caused by a sensor, board, or battery issue and so to perform maintenance and ensure the system and user safeties. </p>
 <p align="justify"> As previously mentioned, the sleep mode is expected to be implemented in the next step, leading to an improved system 450 times more energy efficient than the actual one. This network would be more efficient by maximising the energy use while keeping its main functionalities initially defined. The reporting interval could be also extended to the bridge, and sensing nodes increasing the sytem’s flexibility, and making it more adaptable to the application specificity. Furthermore, another step would be to deploy a security layer in order to reduce external risks and ensured the confidentiality of stored data preventing erroneous manipulation on it either by unauthorized users or non-trained personal depending on the complexity of the data. </p> 
 
