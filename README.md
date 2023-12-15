@@ -1,5 +1,5 @@
 # Wireless Sensor Network
-This project consists on implementing a remote sensing network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers through communication protocols as ESP-NOW which it is convenient for projects related Internet of Things (IoT). 
+This project consists on implementing a remote sensing network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers through communication protocols as ESP-NOW which it is convenient for projects related to Internet of Things (IoT). 
 
 ## Team Members
 1. Ali Altaheri      - H00417357 - ama2023@hw.ac.uk 
