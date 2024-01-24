@@ -2,7 +2,7 @@
 This project consists on implementing a remote sensing network based on interconnected [ESP8266](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) micro-controllers through communication protocols as ESP-NOW which it is convenient for projects related to Internet of Things (IoT). 
 
 ## Team Members
-1. Ali Altaheri      - H00417357 - ama2023@hw.ac.uk 
+1. Ali Altaheri      - H00417357 - ama2023@hw.ac.uk
 2. Ángel García      - H00417698 - ag2070@hw.ac.uk
 3. Baudouin Belpaire - H00445613 - bb2043@hw.ac.uk
 4. Diego Velasquez   - H00434521 - dev2000@hw.ac.uk
@@ -12,7 +12,7 @@ This project consists on implementing a remote sensing network based on intercon
 
 <p align="justify"> The overall behaviour of the system that meets the requirements of the project can be described by the following general flowchart. The different parts are further detailed in the Hardware and Software sections. </p>
 
-<p align="center"> <img src="https://raw.githubusercontent.com/DIEGO15457/Final-Project/main/assets/General_flowchart_new.png" alt="General Flowchart"> </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/BaudouinBelpaire/IoT_platform/main/assets/General_flowchart_new.png" alt="General Flowchart"> </p>
 
 ## Hardware Design
 <p align="justify"> In the coursework, the sensing nodes, the bridge, and the WiFi gateway have been implemented on 4 different ESP8266 boards. The ESP8266 board is an optimal solution for IoT systems as it embeds a microprocessor, GPIOs, a WiFi antenna for wireless communications, and is also energy efficient. The WiFi antenna is used by the nodes to communicates over the ESP-Now technology using the WiFi bandwidth while consuming less power. The pressure mats are replaced by push buttons returning a digital signal (0 or 1) to the GPIO 5 on the board. The wired communication between the bridge and the gateway is performed through serial communication using the TX/RX ports. Finally, the gateway communicates with the online Mosquitto Broker thanks to the MQTT protocol used on a private WiFi network provided by Heriot-Watt University. </p>
